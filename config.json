@@ -1,0 +1,12 @@
+{
+  "top": "t",
+  "right": "r",
+  "bottom": "b",
+  "left": "l",
+  "padding": "p",
+  "padding_values": [5, 10, 15, 20],
+  "padding_unit": "px",
+  "margin": "m",
+  "margin_values": [4, 8, 12, 16],
+  "margin_unit": "px"
+}
