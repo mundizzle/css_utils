@@ -11,12 +11,13 @@
     "alias": "d"
   },
   "color": {
-    "alias": "c"
+    "alias": "c",
+    "values": ["red", "blue", "green"]
   },
   "background_color": {
-    "alias": "bg"
+    "alias": "bg",
+    "values": ["yellow", "purple", "brown"]
   },
-  "colors": [],
   "directions": [
     { "top": "t" },
     { "right": "r" },
