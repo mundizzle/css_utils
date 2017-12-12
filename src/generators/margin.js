@@ -6,13 +6,15 @@ let classes = [
 
 export default config => {
   const { margin, directions, breakpoints } = config;
-  const { alias, values } = margin;
+  const { alias, values, unit } = margin;
   values.forEach(value => {
-    classes.push(`.${alias}\\:${value} { margin: ${value}; }`);
+    classes.push(`.${alias}\\:${value} { margin: ${value}${unit}; }`);
     directions.forEach(direction => {
       const name = Object.keys(direction)[0];
       classes.push(
-        `.${alias}-${direction[name]}\\:${value} { margin-${name}: ${value}; }`
+        `.${alias}-${
+          direction[name]
+        }\\:${value} { margin-${name}: ${value}${unit}; }`
       );
     });
   });
@@ -23,14 +25,14 @@ export default config => {
 `);
     values.forEach(value => {
       classes.push(
-        `  .${alias}\\:${value}\\@${breakpoint_alias} { margin: ${value}; }`
+        `  .${alias}\\:${value}\\@${breakpoint_alias} { margin: ${value}${unit}; }`
       );
       directions.forEach(direction => {
         const name = Object.keys(direction)[0];
         classes.push(
           `  .${alias}-${
             direction[name]
-          }\\:${value}\\@${breakpoint_alias} { margin-${name}: ${value}; }`
+          }\\:${value}\\@${breakpoint_alias} { margin-${name}: ${value}${unit}; }`
         );
       });
     });

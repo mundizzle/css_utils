@@ -6,13 +6,15 @@ let classes = [
 
 export default config => {
   const { padding, directions, breakpoints } = config;
-  const { alias, values } = padding;
+  const { alias, values, unit } = padding;
   values.forEach(value => {
-    classes.push(`.${alias}\\:${value} { padding: ${value}; }`);
+    classes.push(`.${alias}\\:${value} { padding: ${value}${unit}; }`);
     directions.forEach(direction => {
       const name = Object.keys(direction)[0];
       classes.push(
-        `.${alias}-${direction[name]}\\:${value} { padding-${name}: ${value}; }`
+        `.${alias}-${
+          direction[name]
+        }\\:${value} { padding-${name}: ${value}${unit}; }`
       );
     });
   });
@@ -23,7 +25,7 @@ export default config => {
 `);
     values.forEach(value => {
       classes.push(
-        `  .${alias}\\:${value}\\@${breakpoint_alias} { padding: ${value}; }`
+        `  .${alias}\\:${value}\\@${breakpoint_alias} { padding: ${value}${unit}; }`
       );
       directions.forEach(direction => {
         const name = Object.keys(direction)[0];
