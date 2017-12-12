@@ -1,12 +1,27 @@
 {
-  "top": "t",
-  "right": "r",
-  "bottom": "b",
-  "left": "l",
-  "padding": "p",
-  "padding_values": [5, 10, 15, 20],
-  "padding_unit": "px",
-  "margin": "m",
-  "margin_values": [4, 8, 12, 16],
-  "margin_unit": "px"
+  "padding": {
+    "alias": "p",
+    "values": [5, 10, 15, 20]
+  },
+  "margin": {
+    "alias": "m",
+    "values": [4, 8, 12, 16]
+  },
+  "display": {
+    "alias": "d"
+  },
+  "color": {
+    "alias": "c"
+  },
+  "background_color": {
+    "alias": "bg"
+  },
+  "colors": [],
+  "directions": [
+    { "top": "t" },
+    { "right": "r" },
+    { "bottom": "b" },
+    { "left": "l" }
+  ],
+  "breakpoints": [{ "md": "min-width: 768px" }, { "lg": "min-width: 1024px" }]
 }

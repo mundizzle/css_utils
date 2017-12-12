@@ -1,21 +1,19 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
+import { renderToStaticMarkup } from "react-dom/server";
 import { highlight } from "highlight.js";
-
-import { Demo } from "./demo";
+import { html } from "js-beautify";
 
 import config from "../config";
+import generators from "./generators";
+import examples from "./examples";
 
-const buildClass = (className, property, value) => {
-  return `.${className} { ${property}: ${value}; }`;
-};
-
-class Textarea extends Component {
+class Config extends Component {
   shouldComponentUpdate = () => false;
   render() {
     return (
       <div>
-        <h2>Input </h2>
+        <h2>Config</h2>
         <textarea
           onChange={this.props.handleChange}
           className="config card"
@@ -29,54 +27,76 @@ class Textarea extends Component {
   }
 }
 
+class Output extends Component {
+  render() {
+    return (
+      <div>
+        <h2>Output</h2>
+        <pre className="card">
+          <code
+            className="html hljs"
+            dangerouslySetInnerHTML={{
+              __html: highlight("css", this.props.css).value
+            }}
+          />
+        </pre>
+      </div>
+    );
+  }
+}
+
+class Usage extends Component {
+  shouldComponentUpdate = () => false;
+  handleChange = ({ target }) => {
+    const { state } = this;
+    const { dataset, value } = target;
+    try {
+      document.getElementById(`card_${dataset.index}`).innerHTML = value;
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  render() {
+    const { examples } = this.props;
+    return (
+      <div>
+        <h2>Usage</h2>
+        {examples.map((example, key) => {
+          const { name, Example } = example;
+          return (
+            <div key={key}>
+              <h3 className="example_h3">{name}</h3>
+              <div className="example">
+                <textarea
+                  data-index={key}
+                  onChange={this.handleChange}
+                  className="card"
+                  defaultValue={html(renderToStaticMarkup(<Example />), {})}
+                />
+                <div id={`card_${key}`} className="card ">
+                  <Example />
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    );
+  }
+}
+
 class App extends Component {
   state = config;
-  buildSpacingCss = spacing => {
-    const { state, getDirections } = this;
-    const spacing_alias = state[spacing];
-    const spacing_values = state[`${spacing}_values`];
-    const spacing_unit = state[`${spacing}_unit`];
-    const directions = getDirections();
-    let classes = [
-      `
-/* ${spacing} */
-`
-    ];
-    spacing_values.forEach(value => {
-      classes.push(
-        buildClass(
-          `${spacing_alias}\\:${value}`,
-          spacing,
-          `${value}${spacing_unit}`
-        )
-      );
-      directions.forEach(direction => {
-        const name = Object.keys(direction)[0];
-        const alias = direction[name];
-        classes.push(
-          buildClass(
-            `${spacing_alias}-${alias}\\:${value}`,
-            `${spacing}-${name}`,
-            `${value}${spacing_unit}`
-          )
-        );
-      });
-    });
-    return classes.join("\n");
-  };
-  buildCss = () => {
-    const buildSpacingCss = this.buildSpacingCss;
-    return ["margin", "padding"]
-      .map(property => {
-        return buildSpacingCss(property);
+  generateCss = () => {
+    const { props, state } = this;
+    return props.generators
+      .map(generator => {
+        return generator(state);
       })
       .join("\n");
   };
-  getDirections = () => {
-    const { top, right, bottom, left } = this.state;
-    return [{ top: top }, { right: right }, { bottom: bottom }, { left: left }];
-  };
   handleChange = ({ target }) => {
+    console.log(target);
     try {
       this.setState(JSON.parse(target.value));
     } catch (e) {
@@ -84,40 +104,24 @@ class App extends Component {
     }
   };
   render() {
-    const { buildCss, handleChange, state } = this;
-    const css = buildCss();
+    const { generateCss, handleChange, state } = this;
+    const css = generateCss();
     return (
       <div>
+        <style
+          dangerouslySetInnerHTML={{
+            __html: css
+          }}
+        />
         <h1>Utility CSS Generator</h1>
         <div className="grid">
-          <style
-            dangerouslySetInnerHTML={{
-              __html: css
-            }}
-          />
-          <Textarea handleChange={handleChange} />
-          <div>
-            <h2>Output</h2>
-            <pre className="card">
-              <code
-                className="html hljs"
-                dangerouslySetInnerHTML={{
-                  __html: highlight("css", css).value
-                }}
-              />
-            </pre>
-          </div>
-          <div>
-            <h2>Usage</h2>
-            <Demo>
-              <div className="p:20">mundi cool yo</div>
-              <div>mundi cool yo</div>
-            </Demo>
-          </div>
+          <Config handleChange={handleChange} />
+          <Output css={css} />
+          <Usage examples={examples} />
         </div>
       </div>
     );
   }
 }
 
-render(<App />, document.getElementById("root"));
+render(<App generators={generators} />, document.getElementById("root"));

@@ -1,4 +1,8 @@
 @import "highlight.js/styles/github-gist.css";
+
+@media (min-width: 767px) {
+}
+
 html {
   box-sizing: border-box;
 }
@@ -53,21 +57,25 @@ textarea {
   grid-column-gap: 1em;
 }
 
-.demo {
+.example {
   display: flex;
   flex-wrap: nowrap;
   align-items: flex-start;
   margin-bottom: 1em;
 }
 
-.demo > div,
-.demo > textarea {
+.example > div,
+.example > textarea {
   width: 50%;
   min-height: 100px;
 }
-.demo > textarea {
+.example > textarea {
   margin-right: 1em;
 }
 
-@media (min-width: 767px) {
+.example_h3 {
+  color: #999;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: normal;
 }
