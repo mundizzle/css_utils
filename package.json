@@ -2,11 +2,13 @@
   "name": "css_utils",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "bin/build.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node ./build",
     "start": "parcel ./src/index.html"
+  },
+  "bin": {
+    "build": "bin/build.js"
   },
   "keywords": [],
   "author": "",
@@ -28,7 +30,6 @@
     "prettier": "1.9.2"
   },
   "dependencies": {
-    "babel-core": "6.26.0",
     "react": "16.2.0",
     "react-dom": "16.2.0"
   }
