@@ -1,19 +1,22 @@
 {
   "name": "css_utils",
-  "version": "1.0.1",
+  "version": "1.0.7",
   "description": "",
   "main": "bin/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "parcel ./src/index.html"
+    "start": "parcel ./src/index.html",
+    "build": "babel src --out-dir dist",
+    "generate_css": "node ./dist"
   },
   "bin": {
-    "css_utils": "bin/index.js"
+    "css_utils": "bin/index.js",
+    "css_utils_dev": "bin/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
     "babel-plugin-transform-class-properties": "6.24.1",
     "babel-plugin-transform-object-rest-spread": "6.26.0",
     "babel-preset-env": "1.6.1",
@@ -27,10 +30,9 @@
     "parcel-bundler": "1.2.0",
     "postcss": "6.0.14",
     "postcss-import": "11.0.0",
-    "prettier": "1.9.2"
-  },
-  "dependencies": {
+    "prettier": "1.9.2",
     "react": "16.2.0",
-    "react-dom": "16.2.0"
+    "react-dom": "16.2.0",
+    "babel-cli": "6.26.0"
   }
 }
