@@ -15,7 +15,7 @@ exports.default = function (config) {
     var name = _ref.name,
         value = _ref.value;
 
-    classes.push("." + alias + "\\:" + value + " { background-color: " + value + "; }");
+    classes.push("." + alias + "\\:" + name + " { background-color: " + value + "; }");
   });
   breakpoints.forEach(function (breakpoint) {
     var breakpoint_alias = Object.keys(breakpoint)[0];
@@ -24,7 +24,7 @@ exports.default = function (config) {
       var name = _ref2.name,
           value = _ref2.value;
 
-      classes.push("  ." + alias + "\\:" + value + "\\@" + breakpoint_alias + " { background-color: " + value + "; }");
+      classes.push("  ." + alias + "\\:" + name + "\\@" + breakpoint_alias + " { background-color: " + value + "; }");
     });
     classes.push("\n}");
   });

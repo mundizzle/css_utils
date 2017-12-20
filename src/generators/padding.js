@@ -32,7 +32,7 @@ export default config => {
         classes.push(
           `  .${alias}-${
             direction[name]
-          }\\:${value}\\@${breakpoint_alias} { padding-${name}: ${value}; }`
+          }\\:${value}\\@${breakpoint_alias} { padding-${name}: ${value}${unit}; }`
         );
       });
     });

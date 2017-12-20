@@ -28,10 +28,18 @@ var _font_size = require("./font_size");
 
 var _font_size2 = _interopRequireDefault(_font_size);
 
+var _font_family = require("./font_family");
+
+var _font_family2 = _interopRequireDefault(_font_family);
+
+var _font_weight = require("./font_weight");
+
+var _font_weight2 = _interopRequireDefault(_font_weight);
+
 var _flex = require("./flex");
 
 var _flex2 = _interopRequireDefault(_flex);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = [_flex2.default, _font_size2.default, _display2.default, _color2.default, _background_color2.default, _padding2.default, _margin2.default];
+exports.default = [_flex2.default, _font_size2.default, _font_family2.default, _font_weight2.default, _display2.default, _color2.default, _background_color2.default, _padding2.default, _margin2.default];

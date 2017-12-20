@@ -10,4 +10,4 @@ const css = generators
   })
   .join("\n");
 
-fs.outputFile(path.join(process.cwd(), process.argv[3]), css);
+fs.outputFile(path.join(process.cwd(), process.argv[2] || './utils.css'), css);

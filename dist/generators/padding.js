@@ -27,7 +27,7 @@ exports.default = function (config) {
       classes.push("  ." + alias + "\\:" + value + "\\@" + breakpoint_alias + " { padding: " + value + unit + "; }");
       directions.forEach(function (direction) {
         var name = Object.keys(direction)[0];
-        classes.push("  ." + alias + "-" + direction[name] + "\\:" + value + "\\@" + breakpoint_alias + " { padding-" + name + ": " + value + "; }");
+        classes.push("  ." + alias + "-" + direction[name] + "\\:" + value + "\\@" + breakpoint_alias + " { padding-" + name + ": " + value + unit + "; }");
       });
     });
     classes.push("\n}");
