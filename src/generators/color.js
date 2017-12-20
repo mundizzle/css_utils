@@ -7,7 +7,7 @@ let classes = [
 export default config => {
   const { color, breakpoints } = config;
   const { alias, values } = color;
-  values.forEach(value => {
+  values.forEach(({name, value}) => {
     classes.push(`.${alias}\\:${value} { color: ${value}; }`);
   });
   breakpoints.forEach(breakpoint => {
@@ -15,7 +15,7 @@ export default config => {
     classes.push(`
 @media (${breakpoint[breakpoint_alias]}) {
 `);
-    values.forEach(value => {
+    values.forEach(({name, value}) => {
       classes.push(
         `  .${alias}\\:${value}\\@${breakpoint_alias} { color: ${value}; }`
       );

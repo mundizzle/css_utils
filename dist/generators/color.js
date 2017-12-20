@@ -11,13 +11,19 @@ exports.default = function (config) {
   var alias = color.alias,
       values = color.values;
 
-  values.forEach(function (value) {
+  values.forEach(function (_ref) {
+    var name = _ref.name,
+        value = _ref.value;
+
     classes.push("." + alias + "\\:" + value + " { color: " + value + "; }");
   });
   breakpoints.forEach(function (breakpoint) {
     var breakpoint_alias = Object.keys(breakpoint)[0];
     classes.push("\n@media (" + breakpoint[breakpoint_alias] + ") {\n");
-    values.forEach(function (value) {
+    values.forEach(function (_ref2) {
+      var name = _ref2.name,
+          value = _ref2.value;
+
       classes.push("  ." + alias + "\\:" + value + "\\@" + breakpoint_alias + " { color: " + value + "; }");
     });
     classes.push("\n}");

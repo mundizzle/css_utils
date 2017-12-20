@@ -2,7 +2,7 @@ import path from "path";
 import fs from "fs-extra";
 import generators from "./generators";
 
-const config = require(path.join(process.cwd(), "./css_utils.config.json"));
+const config = require(path.join(process.cwd(), "./css.config.json"));
 
 const css = generators
   .map(generator => {
