@@ -58,5 +58,9 @@
     { "bottom": "b" },
     { "left": "l" }
   ],
-  "breakpoints": [{ "md": "min-width: 768px" }, { "lg": "min-width: 1200px" }]
+  "breakpoints": [{ "md": "min-width: 768px" }, { "lg": "min-width: 1200px" }],
+  "output_paths": {
+    "utils": "./src/css/_utils.css",
+    "variables": "./src/css/_variables.css"
+  }
 }
