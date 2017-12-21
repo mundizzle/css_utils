@@ -27,7 +27,7 @@ exports.default = function (config) {
 
   classes.push("\n/* spacing */\n");
   padding.values.forEach(function (value) {
-    classes.push("  --sp-" + value + ": " + value + ";");
+    classes.push("  --sp-" + value + ": " + value + padding.unit + ";");
   });
 
   classes.push("\n/* font-family */\n");
@@ -45,7 +45,7 @@ exports.default = function (config) {
   classes.push("\n/* font-size */\n");
 
   font_size.values.forEach(function (value) {
-    classes.push("  --font-size-" + value + ": " + value + ";");
+    classes.push("  --font-size-" + value + ": " + value + font_size.unit + ";");
   });
 
   classes.push("\n}");

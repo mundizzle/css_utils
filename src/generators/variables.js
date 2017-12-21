@@ -23,7 +23,7 @@ classes.push(  `
 /* spacing */
 `)
     padding.values.forEach((value) => {
-      classes.push(`  --sp-${value}: ${value};`);
+      classes.push(`  --sp-${value}: ${value}${padding.unit};`);
     });
 
 classes.push(  `
@@ -47,7 +47,7 @@ classes.push(  `
 `)
 
     font_size.values.forEach((value) => {
-      classes.push(`  --font-size-${value}: ${value};`);
+      classes.push(`  --font-size-${value}: ${value}${font_size.unit};`);
     });
 
     classes.push(`

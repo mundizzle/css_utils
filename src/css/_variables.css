@@ -16,15 +16,15 @@
 
 /* spacing */
 
-  --sp-10: 10;
-  --sp-15: 15;
-  --sp-20: 20;
-  --sp-30: 30;
-  --sp-40: 40;
-  --sp-50: 50;
-  --sp-60: 60;
-  --sp-80: 80;
-  --sp-100: 100;
+  --sp-10: 10px;
+  --sp-15: 15px;
+  --sp-20: 20px;
+  --sp-30: 30px;
+  --sp-40: 40px;
+  --sp-50: 50px;
+  --sp-60: 60px;
+  --sp-80: 80px;
+  --sp-100: 100px;
 
 /* font-family */
 
@@ -41,16 +41,16 @@
 
 /* font-size */
 
-  --font-size-11: 11;
-  --font-size-12: 12;
-  --font-size-14: 14;
-  --font-size-16: 16;
-  --font-size-18: 18;
-  --font-size-20: 20;
-  --font-size-22: 22;
-  --font-size-24: 24;
-  --font-size-30: 30;
-  --font-size-36: 36;
-  --font-size-50: 50;
+  --font-size-11: 11px;
+  --font-size-12: 12px;
+  --font-size-14: 14px;
+  --font-size-16: 16px;
+  --font-size-18: 18px;
+  --font-size-20: 20px;
+  --font-size-22: 22px;
+  --font-size-24: 24px;
+  --font-size-30: 30px;
+  --font-size-36: 36px;
+  --font-size-50: 50px;
 
 }
