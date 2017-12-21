@@ -22,32 +22,32 @@ ${variable_scope || ':root'} {
 classes.push(  `
 /* spacing */
 `)
-    padding.values.forEach((value, index) => {
-      classes.push(`  --sp-${index}: ${value};`);
+    padding.values.forEach((value) => {
+      classes.push(`  --sp-${value}: ${value};`);
     });
 
 classes.push(  `
 /* font-family */
 `)
 
-    font_family.values.forEach((value, index) => {
-      classes.push(`  --font-family-${index + 1}: ${value};`);
+    font_family.values.forEach((value) => {
+      classes.push(`  --font-family-${value}: ${value};`);
     });
 
 classes.push(  `
 /* font-weight */
 `)
 
-    font_weight.values.forEach((value, index) => {
-      classes.push(`  --font-weight-${index + 1}: ${value};`);
+    font_weight.values.forEach((value) => {
+      classes.push(`  --font-weight-${value}: ${value};`);
     });
 
 classes.push(  `
 /* font-size */
 `)
 
-    font_size.values.forEach((value, index) => {
-      classes.push(`  --font-size-${index + 1}: ${value};`);
+    font_size.values.forEach((value) => {
+      classes.push(`  --font-size-${value}: ${value};`);
     });
 
     classes.push(`

@@ -26,26 +26,26 @@ exports.default = function (config) {
   });
 
   classes.push("\n/* spacing */\n");
-  padding.values.forEach(function (value, index) {
-    classes.push("  --sp-" + index + ": " + value + ";");
+  padding.values.forEach(function (value) {
+    classes.push("  --sp-" + value + ": " + value + ";");
   });
 
   classes.push("\n/* font-family */\n");
 
-  font_family.values.forEach(function (value, index) {
-    classes.push("  --font-family-" + (index + 1) + ": " + value + ";");
+  font_family.values.forEach(function (value) {
+    classes.push("  --font-family-" + value + ": " + value + ";");
   });
 
   classes.push("\n/* font-weight */\n");
 
-  font_weight.values.forEach(function (value, index) {
-    classes.push("  --font-weight-" + (index + 1) + ": " + value + ";");
+  font_weight.values.forEach(function (value) {
+    classes.push("  --font-weight-" + value + ": " + value + ";");
   });
 
   classes.push("\n/* font-size */\n");
 
-  font_size.values.forEach(function (value, index) {
-    classes.push("  --font-size-" + (index + 1) + ": " + value + ";");
+  font_size.values.forEach(function (value) {
+    classes.push("  --font-size-" + value + ": " + value + ";");
   });
 
   classes.push("\n}");
