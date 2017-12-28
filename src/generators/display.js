@@ -6,6 +6,7 @@ let classes = [
 
 export default config => {
   const { display, breakpoints } = config;
+  if (!display) return
   const { alias, values } = display;
   values.forEach(value => {
     classes.push(`.${alias}\\:${value} { display: ${value}; }`);

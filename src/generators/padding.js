@@ -6,6 +6,7 @@ let classes = [
 
 export default config => {
   const { padding, directions, breakpoints } = config;
+  if (!padding) return
   const { alias, values, unit } = padding;
   values.forEach(value => {
     classes.push(`.${alias}\\:${value} { padding: ${value}${unit}; }`);

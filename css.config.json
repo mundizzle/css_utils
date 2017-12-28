@@ -52,6 +52,11 @@
       { "name": "dark-purple", "value": "#2f1e36"}
     ]
   },
+  "flex": {
+    "alias": "fl",
+    "justifyContent": ["center", "space-between", "space-around"],
+    "alignItems": ["center"]
+  },
   "directions": [
     { "top": "t" },
     { "right": "r" },
@@ -60,7 +65,7 @@
   ],
   "breakpoints": [{ "md": "min-width: 768px" }, { "lg": "min-width: 1200px" }],
   "output_paths": {
-    "utils": "./src/css/_utils.css",
-    "variables": "./src/css/_variables.css"
+    "utils": "utils.css",
+    "variables": "variables.css"
   }
 }

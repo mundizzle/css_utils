@@ -6,6 +6,7 @@ let classes = [
 
 export default config => {
   const { font_size, breakpoints } = config;
+  if (!font_size) return
   const { alias, values, unit } = font_size;
   values.forEach(value => {
     classes.push(`.${alias}\\:${value} { font-size: ${value}${unit}; }`);

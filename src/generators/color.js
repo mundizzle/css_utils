@@ -6,6 +6,7 @@ let classes = [
 
 export default config => {
   const { color, breakpoints } = config;
+  if (!color) return
   const { alias, values } = color;
   values.forEach(({name, value}) => {
     classes.push(`.${alias}\\:${name} { color: ${value}; }`);
