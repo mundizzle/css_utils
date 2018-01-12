@@ -22,6 +22,11 @@
     "alias": "fw",
     "values": [300, 400, 500, 600, 700]
   },
+  "line_height": {
+    "alias": "lh",
+    "values": [16, 18, 20, 22, 28, 40, 58],
+    "unit": "px"
+  },
   "display": {
     "alias": "d",
     "values": ["block", "inline", "inline-block", "flex", "grid"]

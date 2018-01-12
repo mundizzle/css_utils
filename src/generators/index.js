@@ -7,6 +7,7 @@ import font_size from "./font_size";
 import font_family from "./font_family";
 import font_weight from "./font_weight";
 import flex from "./flex";
+import line_height from "./line_height";
 
 export default [
   flex,
@@ -17,5 +18,6 @@ export default [
   color,
   background_color,
   padding,
-  margin
+  margin,
+  line_height
 ];
