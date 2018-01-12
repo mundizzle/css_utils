@@ -49,8 +49,6 @@ exports.default = function (config) {
     classes.push("  --font-size-" + value + ": " + value + font_size.unit + ";");
   });
 
-  classes.push("\n}");
-
   classes.push("\n/* line-height */\n");
 
   line_height && line_height.values.forEach(function (value) {

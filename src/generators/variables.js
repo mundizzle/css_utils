@@ -50,9 +50,6 @@ classes.push(  `
       classes.push(`  --font-size-${value}: ${value}${font_size.unit};`);
     });
 
-    classes.push(`
-}`);
-
 classes.push(  `
 /* line-height */
 `)
